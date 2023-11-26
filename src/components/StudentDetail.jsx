@@ -1,16 +1,26 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import CreateNewStudentModal from "./CreateNewStudentModal";
+import { useNavigate } from "react-router";
 
 function StudentDetail() {
+  const navigate = useNavigate();
   const student = useSelector((state) => state.studentDetail.student);
-  console.log(student);
+  const handleBack = () => {
+    navigate("/");
+  };
+  const handleEdit = () => {};
   const dispatch = useDispatch();
   // const student = useLoaderData().data;
   return (
     <div className="container-sm mt-4">
       <div className="card-body text-start">
-        <h5 className="card-title">Student Information</h5>
-        <div></div>
+        <div className="d-flex justify-content-between mb-3">
+          <h5 className="card-title">Student Information</h5>
+          <button onClick={handleBack}>Back</button>
+          <button onClick={handleEdit}>Edit</button>
+        </div>
+
         <ul className="list-group text-left">
           <li className="list-group-item ">
             <strong>Student ID:</strong>{" "}
@@ -23,6 +33,16 @@ function StudentDetail() {
           <li className="list-group-item">
             <strong>Student Name:</strong>{" "}
             <span className="text-muted">{student.student_name}</span>
+          </li>
+          <li className="list-group-item">
+            <strong>Student Age:</strong>{" "}
+            <span className="text-muted">{student.student_age}</span>
+          </li>
+          <li className="list-group-item">
+            <strong>Student Gender:</strong>{" "}
+            <span className="text-muted">
+              {student.student_gender == 1 ? "Male" : "Female"}
+            </span>
           </li>
           <li className="list-group-item">
             <strong>Student Email:</strong>{" "}

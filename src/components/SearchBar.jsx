@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-
-function SearchBar({ handleSearch }) {
+import clsx from "clsx";
+function SearchBar({ handleSearch, className }) {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleChange = (e) => {
@@ -15,7 +15,7 @@ function SearchBar({ handleSearch }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mb-3">
+    <form onSubmit={handleSubmit} className={clsx(className)}>
       <div className="input-group">
         <input
           type="text"

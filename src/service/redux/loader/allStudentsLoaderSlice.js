@@ -38,4 +38,5 @@ export const getAllStudents = (state) => state.allStudentsLoader.students;
 export const getFetchAllStudentStatus = (state) =>
   state.allStudentsLoader.status;
 export default allStudentsLoaderSlice.reducer;
-export const { getStudentById } = allStudentsLoaderSlice.actions;
+export const { getStudentById, deleteReduxStudent } =
+  allStudentsLoaderSlice.actions;
