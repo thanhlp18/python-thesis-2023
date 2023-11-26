@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Navbar from "./components/NavBar";
+import StudentTable from "./components/StudentTable";
+import StudentDetail from "./components/StudentDetail";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      {/* <StudentDetail
+        student={{
+          student_id: 2,
+          student_class: "CD456",
+          student_name: "Jane Smith",
+          student_email: "jane@example.com",
+          student_address: "456 Avenue",
+        }}
+      /> */}
+      <StudentTable />
     </div>
   );
 }
