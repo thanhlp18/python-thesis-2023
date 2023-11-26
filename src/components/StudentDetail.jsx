@@ -1,10 +1,16 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-function StudentDetail({ student }) {
+function StudentDetail() {
+  const student = useSelector((state) => state.studentDetail.student);
+  console.log(student);
+  const dispatch = useDispatch();
+  // const student = useLoaderData().data;
   return (
     <div className="container-sm mt-4">
       <div className="card-body text-start">
         <h5 className="card-title">Student Information</h5>
+        <div></div>
         <ul className="list-group text-left">
           <li className="list-group-item ">
             <strong>Student ID:</strong>{" "}
