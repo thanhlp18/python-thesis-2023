@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import AddStudentForm from "./AddStudentForm";
 
-function Example() {
+function Example({ buttonText, student, handleEdit }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -12,7 +12,7 @@ function Example() {
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
-        Create a new student
+        {buttonText ? buttonText : "Create a new student"}
       </Button>
 
       <Modal show={show} onHide={handleClose} animation={false}>
@@ -20,7 +20,11 @@ function Example() {
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <AddStudentForm handleClose={handleClose} />
+          <AddStudentForm
+            handleClose={handleClose}
+            student={student}
+            handleEdit={handleEdit}
+          />
         </Modal.Body>
       </Modal>
     </>

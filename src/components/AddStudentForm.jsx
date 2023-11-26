@@ -6,15 +6,19 @@ import {
   postDataToServer1,
 } from "../service/api/apiLoader";
 
-const AddStudentForm = ({ handleClose }) => {
-  const [formData, setFormData] = useState({
-    student_name: "",
-    student_age: "",
-    student_email: "",
-    student_address: "",
-    student_class: "",
-    student_gender: "",
-  });
+const AddStudentForm = ({ handleClose, student, handleEdit }) => {
+  const [formData, setFormData] = useState(
+    student
+      ? student
+      : {
+          student_name: "",
+          student_age: "",
+          student_email: "",
+          student_address: "",
+          student_class: "",
+          student_gender: "",
+        }
+  );
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -26,9 +30,13 @@ const AddStudentForm = ({ handleClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    postDataToServer(formData);
+    if (handleEdit) {
+      handleEdit(formData);
+    } else {
+      postDataToServer(formData);
+    }
     handleClose(true);
+    window.location.reload();
   };
 
   return (

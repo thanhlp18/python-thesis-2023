@@ -9,6 +9,7 @@ function StudentTable({ handleSearch, studentList, handleRowClick }) {
   console.log(useSelector((state) => state));
   const handleDeleteStudent = (id) => {
     deleteStudent(id);
+    window.location.reload();
   };
   return (
     <div className="container">
