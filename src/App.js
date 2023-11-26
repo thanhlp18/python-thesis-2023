@@ -1,6 +1,7 @@
 import "./App.css";
 import Navbar from "./components/NavBar";
 import StudentTable from "./components/StudentTable";
+// eslint-disable-next-line no-unused-vars
 import StudentDetail from "./components/StudentDetail";
 
 function App() {
