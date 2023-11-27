@@ -36,7 +36,7 @@ const AddStudentForm = ({ handleClose, student, handleEdit }) => {
       postDataToServer(formData);
     }
     handleClose(true);
-    window.location.reload();
+    // window.location.reload();
   };
 
   return (

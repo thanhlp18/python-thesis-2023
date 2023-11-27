@@ -35,19 +35,11 @@ export async function addNewStudent(data) {
 }
 
 export async function updateStudent(data) {
-  const formData = new FormData();
-
-  for (let key in data) {
-    if (data.hasOwnProperty(key)) {
-      formData.append(key, data[key]);
-    }
-  }
-  console.log(formData);
   const response = await fetch(
     "https://t9wij3y8zl.execute-api.us-east-1.amazonaws.com/Prod/update-student",
     {
       method: "PATCH",
-      body: JSON.stringify(formData),
+      body: JSON.stringify(data),
     }
   );
   const result = await response.json();
